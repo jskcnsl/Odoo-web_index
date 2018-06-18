@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="web_index_form_view" model="ir.ui.view">
+            <field name="name">web.index.form</field>
+            <field name="model">web.index</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="confirm" type="object" string="确认" class="btn-primary" states="draft"/>
+                        <button name="action_cancel" type="object" string="删除" class="btn-primary" states="confirmed"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                    </header>
+                    <sheet>
+                        <h1><field name="name"/></h1>
+                        <group>
+                            <field name="template_id"/>
+                        </group>
+                        <notebook>
+                            <page string="窗口挂件">
+                                <field name="windows">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="window_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1><field name="name"/> </h1>
+                                            <group>
+                                                <group>
+                                                    <field name="window_type"/>
+                                                    <field name="aim_class"/>
+                                                </group>
+                                                <group>
+                                                    <field name="chart_list" attrs="{'invisible':[('window_type','!=','chart')]}"/>
+                                                    <field name="model"/>
+                                                    <field name="func"/>
+                                                </group>
+                                            </group>
+                                            <notebook attrs="{'invisible':[('window_type','!=','chart')]}">
+                                                <page string="图表">
+                                                    <field name="charts">
+                                                        <tree>
+                                                            <field name="chart_type"/>
+                                                            <field name="model"/>
+                                                            <field name="func"/>
+                                                        </tree>
+                                                        <form>
+                                                            <group>
+                                                                <field name="chart_type"/>
+                                                                <field name="model"/>
+                                                                <field name="func"/>
+                                                            </group>
+                                                            <group attrs="{'invisible':[('chart_type','!=','column')]}">
+                                                                <group>
+                                                                    <field name="grouping"/>
+                                                                    <field name="color"/>
+                                                                </group>
+                                                                <group>
+                                                                    <field name="pointPadding"/>
+                                                                    <field name="pointPlacement"/>
+                                                                </group>
+                                                            </group>
+                                                            <group attrs="{'invisible':[('chart_type','not in',('column','spline'))]}">
+                                                                <field name="yAxis"/>
+                                                            </group>
+                                                            <group attrs="{'invisible':[('chart_type','not in',('pie','variablepie'))]}">
+                                                                <group>
+                                                                    <field name="size"/>
+                                                                    <field name="innerSize"/>
+                                                                    <field name="zMin"/>
+                                                                </group>
+                                                                <group>
+                                                                    <field name="startAngle"/>
+                                                                    <field name="endAngle"/>
+                                                                </group>
+                                                                <group>
+                                                                    <field name="pie_align"/>
+                                                                    <field name="pie_vertical_align"/>
+                                                                </group>
+                                                                <group>
+                                                                    <field name="click_call_title_change"/>
+                                                                </group>
+                                                            </group>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="坐标轴">
+                                                    <group string="X轴">
+                                                        <field name="xAxis_type"/>
+                                                        <field name="xAxis_model" attrs="{'invisible':[('xAxis_type','!=','func')],'required':[('xAxis_type','=','func')]}"/>
+                                                        <field name="xAxis_func" attrs="{'invisible':[('xAxis_type','!=','func')],'required':[('xAxis_type','=','func')]}"/>
+                                                        <field name="xAxis_cate" attrs="{'invisible':[('xAxis_type','!=','category')]}">
+                                                            <tree editable="bottom">
+                                                                <field name="name"/>
+                                                            </tree>
+                                                        </field>
+                                                    </group>
+                                                    <group string="Y轴">
+                                                        <field name="yAxis">
+                                                            <tree editable="bottom">
+                                                                <field name="name"/>
+                                                                <field name="min"/>
+                                                                <field name="opposite"/>
+                                                            </tree>
+                                                        </field>
+                                                    </group>
+                                                </page>
+                                                <page string="标题">
+                                                    <group string="主标题">
+                                                        <group>
+                                                            <field name="chart_title"/>
+                                                            <field name="title_y"/>
+                                                        </group>
+                                                        <group>
+                                                            <field name="title_align"/>
+                                                            <field name="title_vertical_align"/>
+                                                        </group>
+                                                    </group>
+                                                    <group string="二级标题">
+                                                        <group>
+                                                            <field name="chart_subtitle"/>
+                                                            <field name="subtitle_y"/>
+                                                        </group>
+                                                        <group>
+                                                            <field name="subtitle_align"/>
+                                                            <field name="subtitle_vertical_align"/>
+                                                        </group>
+                                                    </group>
+                                                </page>
+                                            </notebook>
+                                            <group attrs="{'invisible':[('window_type','!=','notice')]}">
+                                                <field name="color" />
+                                                <field name="click"/>
+                                            </group>
+                                            <group attrs="{'invisible':[('window_type','!=','list')]}">
+                                                <group>
+                                                    <field name="pre_page"/>
+                                                </group>
+                                                <group>
+                                                    <field name="action_func"/>
+                                                </group>
+                                            </group>
+                                            <group attrs="{'invisible':[('window_type','!=','set')]}">
+                                                <field name="direct"/>
+                                                <field name="width" attrs="{'invisible':[('direct','=','vertical')]}"/>
+                                            </group>
+                                            <group attrs="{'invisible':[('window_type','!=','header')]}">
+                                                <field name="header_title"/>
+                                            </group>
+                                            <group attrs="{'invisible':[('window_type','!=','pivot')]}">
+                                                <group>
+                                                    <field name="showColTotal"/>
+                                                    <field name="showRowTotal"/>
+                                                </group>
+                                                <group>
+                                                    <field name="fixedColHeader"/>
+                                                    <field name="fixedRowHeader"/>
+                                                </group>
+                                            </group>
+                                            <group attrs="{'invisible':[('window_type','!=','download')]}">
+                                                <field name="download_title"/>
+                                            </group>
+                                            <group attrs="{'invisible':[('window_type','not in',('list','chart','set','header','pivot','html','download'))]}">
+                                                <field name="can_filter"/>
+                                                <field name="filter_tag" attrs="{'invisible':[('can_filter','=',False)]}"/>
+                                            </group>
+                                            <group attrs="{'invisible':[('window_type','!=','value')]}">
+                                                <field name="icon_back"/>
+                                                <field name="icon"/>
+                                            </group>
+                                            <group attrs="{'invisible':[('window_type','!=','search')]}">
+                                                <field name="tag"/>
+                                                <field name="search_type">
+                                                    <tree>
+                                                        <field name="name"/>
+                                                        <field name="tag"/>
+                                                        <field name="field_type"/>
+                                                        <field name="model"/>
+                                                        <field name="domain"/>
+                                                    </tree>
+                                                    <form>
+                                                        <group>
+                                                            <group>
+                                                                <field name="name"/>
+                                                                <field name="field_type"/>
+                                                                <field name="context"/>
+                                                            </group>
+                                                            <group>
+                                                                <field name="tag"/>
+                                                                <field name="model"/>
+                                                                <field name="domain"/>
+                                                            </group>
+                                                        </group>
+                                                        <field name="selection_list" attrs="{'invisible':[('field_type','!=','selection')]}">
+                                                            <tree editable="bottom">
+                                                                <field name="key"/>
+                                                                <field name="value"/>
+                                                            </tree>
+                                                        </field>
+                                                    </form>
+                                                </field>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="视图">
+                                <group string="菜单">
+                                    <field name="menu" readonly="1"/>
+                                    <field name="parent_menu"/>
+                                    <field name="menu_seq"/>
+                                </group>
+                                <group string="动作">
+                                    <field name="action" readonly="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="web_index_tree_view" model="ir.ui.view">
+            <field name="name">web.index.tree</field>
+            <field name="model">web.index</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="menu"/>
+                    <field name="action"/>
+                </tree>
+            </field>
+        </record>
+        <record id="web_index_action" model="ir.actions.act_window">
+            <field name="name">主页视图</field>
+            <field name="res_model">web.index</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('web_index_tree_view')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('web_index_form_view')})]"/>
+        </record>
+        <menuitem id="menu_web_index" action="web_index_action" name="主页视图" parent="base.next_id_2"/>
+    </data>
+</odoo>

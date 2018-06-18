@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="web_index assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/web_index/static/src/js/index_header_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_html_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_download_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_value_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_notice_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_list_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_pivot_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_search_field.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_search_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_chart_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_value_set_window.js"/>
+                <script type="text/javascript" src="/web_index/static/src/js/index_widget.js"/>
+                <script src="/web_index/static/highcharts/highcharts.js" type="text/javascript"/>
+                <script src="/web_index/static/highcharts/modules/variable-pie.js" type="text/javascript"/>
+                <script src="/web_index/static/pivot/pivot.js" type="text/javascript"/>
+                <script src="/web_index/static/pivot/pivot.zh.js" type="text/javascript"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

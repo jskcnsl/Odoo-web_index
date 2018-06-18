@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="web_index.index_list_window_view">
+        <section class="panel">
+            <t t-if="window_title != false">
+                <div class="panel-heading"><t t-esc="window_title"/></div>
+            </t>
+            <div class="panel-body no-padding">
+                <table class="table table-hover no-margin">
+                    <thead>
+                        <tr>
+                            <t t-foreach="content_head" t-as="head">
+                                <th t-attf-class="col-md-#{head['width']}">
+                                    <t t-if="head_first">
+                                        <span class="pd-l-sm"/>
+                                    </t>
+                                    <t t-esc="head['name']"/>
+                                    <t t-if="head_last">
+                                        <span class="pull-right pd-r-sm"/>
+                                    </t>
+                                </th>
+                            </t>
+                        </tr>
+                    </thead>
+                    <t t-foreach="window_content" t-as="page">
+                        <tbody t-attf-class="win_page-#{page_index+1}">
+                            <t t-foreach="page" t-as="line">
+                                <tr t-attf-item-id="#{line['id']}" class="click-line" style="cursor:pointer;">
+                                    <t t-foreach="line['content']" t-as="cell">
+                                        <td>
+                                            <t t-if="cell_first">
+                                                <span class="pd-l-sm"/>
+                                            </t>
+                                            <t t-esc="cell['name']"/>
+                                            <t t-if="cell_last">
+                                                <span class="pull-right pd-r-sm"/>
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </t>
+                </table>
+                <div class="page_no_position"/>
+            </div>
+        </section>
+    </t>
+    <t t-name="web_index.page_no_widget">
+        <div class="text-center pull-right">
+            <ul class="pagination pagination-sm no-mg-t no-mg-b">
+                <li style="cursor:pointer;">
+                    <a class="pre">«</a>
+                </li>
+                <t t-foreach="page_line" t-as="page_no">
+                    <li style="cursor:pointer;">
+                        <a t-attf-class="pgn pgn-#{page_no}" t-attf-pgn="#{page_no}">
+                            <t t-esc="page_no"/>
+                        </a>
+                    </li>
+                </t>
+                <li style="cursor:pointer;">
+                    <a class="nxt">»</a>
+                </li>
+            </ul>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="index_widget_view">
+        <head>
+
+            <meta charset="utf-8"/>
+            <meta name="description" content="Flat, Clean, Responsive, admin template built with bootstrap 3"/>
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"/>
+
+            <title>二商首页</title>
+
+            <link rel="stylesheet" href="/web_index/static/src/css/panel.css"/>
+
+            <link rel="stylesheet" href="/web_index/static/src/css/skins/palette.1.css" id="skin"/>
+            <link rel="stylesheet" href="/web_index/static/src/css/fonts/style.1.css" id="font"/>
+            <link rel="stylesheet" href="/web_index/static/src/css/main.css"/>
+            <link rel="stylesheet" href="/web_index/static/pivot/pivot.css"/>
+
+            <!--<script src="/web_index/static/highcharts/highcharts.js" type="text/javascript"/>-->
+            <!--<script src="/web_index/static/highcharts/modules/variable-pie.js" type="text/javascript"/>-->
+            <!--[if lt IE 9]>
+                <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+
+            <style>
+
+
+                .text-primary,
+                .text-primary a {
+                color: #17c3e5!important;
+                }
+                .text-primary:focus,
+                .text-primary a:focus {
+                color: #10889f!important;
+                }
+                .text-default,
+                .text-default a {
+                color: #dde1e7!important;
+                }
+                .text-default:focus,
+                .text-default a:focus {
+                color: #b0b9c7!important;
+                }
+                .text-warning,
+                .text-warning a {
+                color: #ffb244!important;
+                }
+                .text-warning:focus,
+                .text-warning a:focus {
+                color: #f69100!important;
+                }
+                .text-success,
+                .text-success a {
+                color: #2dcb73!important;
+                }
+                .text-success:focus,
+                .text-success a:focus {
+                color: #1f8c50!important;
+                }
+                .text-info,
+                .text-info a {
+                color: #1ec3c8!important;
+                }
+                .text-info:focus,
+                .text-info a:focus {
+                color: #148285!important;
+                }
+                .text-white,
+                .text-white a {
+                color: #ffffff!important;
+                }
+                .text-white:focus,
+                .text-white a:focus {
+                color: #d9d9d9!important;
+                }
+                .text-danger,
+                .text-danger a {
+                color: #ff604f!important;
+                }
+                .text-danger:focus,
+                .text-danger a:focus {
+                color: #ff1b02!important;
+                }
+                .text-muted,
+                .text-muted a {
+                color: #b3b3b3!important;
+                }
+                .text-muted:focus,
+                .text-muted a:focus {
+                color: #8c8c8c!important;
+                }
+                .pagination-focus{
+                background-color: #eee!important;
+                }
+
+
+            </style>
+        </head>
+        <body>
+            <div class="app" data-sidebar="locked">
+                <section class="layout">
+                    <section class="main-content">
+                        <div class="content-wrap"/>
+                    </section>
+                </section>
+            </div>
+        </body>
+    </t>
+</templates>

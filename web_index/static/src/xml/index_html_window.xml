@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="web_index.index_html_window_view">
+        <section class="panel">
+            <!--<div class="panel-heading">-->
+                <!--<div class="btn btn-info mg-t-xs download-button">-->
+                    <!--<a name='excelDownloadBtn' id="excelDownloadBtn" style='display:none;'>下载</a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="panel-body">
+                <div class="excel-body"></div>
+            </div>
+        </section>
+    </t>
+</templates>

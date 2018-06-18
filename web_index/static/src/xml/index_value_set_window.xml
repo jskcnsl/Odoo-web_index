@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="web_index.index_value_set_window_view_vertical">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="col-lg-12" style="float: none;margin: auto;">
+                    <t t-foreach="content" t-as="line">
+                        <t t-if="line_first">
+                            <div class="mg-b-sm mg-t-lg">
+                                <b><t t-esc="line['name']"/></b>
+                                <span class="pd-l-lg"></span>
+                                <font class="fa-5x"><t t-esc="line['value']"/> </font>
+                            </div>
+                        </t>
+                        <t t-if="!line_first">
+                            <div class="mg-b-sm">
+                                <b><t t-esc="line['name']"/></b>
+                                <span class="pd-l-lg"></span>
+                                <font class="fa-5x"><t t-esc="line['value']"/> </font>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </section>
+    </t>
+    <t t-name="web_index.index_value_set_window_view_horizontal">
+        <section class="panel">
+            <div class="panel-body no-padding">
+                <t t-foreach="content" t-as="line">
+                    <div t-attf-class="text-center col-md-#{width}">
+                        <b>
+                            <t t-esc="line['name']"/>
+                        </b>
+                        <span class="pd-l-lg"></span>
+                        <font class="fa-5x">
+                            <t t-esc="line['value']"/>
+                        </font>
+                    </div>
+                </t>
+            </div>
+        </section>
+    </t>
+</templates>

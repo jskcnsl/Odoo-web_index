@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tamplates>
+    <t t-name="web_index.index_value_window_view">
+        <section class="panel">
+            <div class="panel-body">
+                <div t-attf-class="circle-icon #{icon_back}">
+                    <i t-attf-class="fa #{icon}"/>
+                </div>
+                <div>
+                    <h3 class="no-margin"><t t-esc="value"/></h3>
+                    <t t-esc="title"/>
+                </div>
+            </div>
+        </section>
+    </t>
+</tamplates>

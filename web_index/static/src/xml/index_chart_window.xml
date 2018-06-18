@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="web_index.index_chart_window_view">
+        <section class="panel">
+            <div class="panel-body">         <!--此div  内边距  15px-->
+                <!--    height:375px; 这里可以自己修改高度   使与左边同高 (所有图表默认高度height: 200px; 若修改高度，同方法)-->
+                <div class="chart" t-attf-id="#{chart_div_id}"/>
+            </div>
+        </section>
+    </t>
+</templates>

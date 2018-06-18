@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="web_index.index_notice_window_view">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><t t-esc="window_title"/>
+                <small class="pull-right">more</small>
+            </div>
+            <ul class="list-group">
+                <t t-foreach="window_content" t-as="content">
+                    <t t-if="click==='dialog'">
+                        <div class="notice_dialog">
+                            <div class="modal fade" t-attf-id="dialog#{content['id']}" tabindex="-1" role="dialog"
+                                 aria-labelledby="NoticeDialogModalLabel" data-backdrop="static" data-keyboard="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">X</span>
+                                            </button>
+                                            <h4 class="modal-title" id="DialogModalLabel">
+                                                <t t-esc="content['title']"/>
+                                            </h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="modal-body-content"/>
+                                            <small class="pull-right text-muted"><t t-esc="content['deputy_title']" /></small>
+                                            <!--<t t-esc="content['dialog_content']"/>-->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">关闭
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                    <li class="list-group-item" t-attf-data-target="#dialog#{content['id']}" data-toggle="modal" t-attf-item-id="#{content['id']}">
+                        <div class="show no-margin pd-t-xs">
+                            <t t-esc="content['title']"/>
+                            <small class="pull-right text-muted"><t t-esc="content['deputy_title']" /></small>
+                        </div>
+                    </li>
+                </t>
+            </ul>
+        </div>
+    </t>
+</templates>

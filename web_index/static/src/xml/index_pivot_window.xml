@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="web_index.index_pivot_window_view">
+        <section class="panel">
+            <div class="panel-heading">
+                <div class="btn btn-info mg-t-xs pivot_download_button">下载</div>
+            </div>
+            <div class="panel-body">
+                <div class="pivot_single" style="overflow-x:auto;"/>
+            </div>
+        </section>
+    </t>
+</templates>

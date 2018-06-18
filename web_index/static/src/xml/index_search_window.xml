@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="web_index.index_search_window">
+        <section class="panel no-mg-b">
+            <!--<header class="panel-heading"><t t-esc="window_title"/></header>-->
+            <div class="panel-body">
+                <div class="search_fields_content"/>
+
+                <div class="col-xs-3 col-md-4 col-sm-6 col-xs-12 mg-b-md demo-button">
+                    <button type="button" class="btn btn-info mg-t-xs search_button mg-t-xs">查询</button>
+                </div>
+            </div>
+        </section>
+        <section class="panel no-mg-b">
+            <div class="panel-body">
+                <div class="search_result"/>
+            </div>
+        </section>
+    </t>
+    <t t-name="web_index.index_search_field">
+        <t t-if="type == 'field'">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mg-b-md">
+                <label class="col-sm-3 control-label no-padding mg-t-sm">
+                    <t t-esc="name"/>
+                </label>
+                <div class="col-sm-9 search_field_dialog">
+                    <input class="search_input o_form_input ui-autocomplete-input form-control" type="text" autocomplete="off"/>
+                    <div class="search_list" style="display:none;"/>
+                    <div class="modal fade" tabindex="-1" role="dialog" t-attf-id="#{tag}-Modal" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="modal-close close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="search_modal"/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+        </t>
+        <t t-if="type == 'selection'">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mg-b-md">
+                <label class="col-sm-2 control-label no-padding mg-t-sm">
+                    <t t-esc="name"/>
+                </label>
+                <div class="col-sm-10">
+                    <select class="selection_input form-control">
+                        <option t-attf-value="None"></option>
+                        <t t-foreach="select_list" t-as="s">
+                            <option t-attf-value="#{s.key}"><t t-esc="s.value"/></option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+        </t>
+        <t t-if="type == 'date'">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mg-b-md">
+                <label class="col-sm-2 control-label no-padding mg-t-sm">
+                    <t t-esc="name"/>
+                </label>
+                <div class="col-sm-10">
+                    <input class="date_input o_form_input ui-autocomplete-input form-control" type="text" autocomplete="off"/>
+                </div>
+            </div>
+        </t>
+        <t t-if="type == 'char'">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mg-b-md">
+                <label class="col-sm-2 control-label no-padding mg-t-sm">
+                    <t t-esc="name"/>
+                </label>
+                <div class="col-sm-10">
+                    <input class="char_input o_form_input ui-autocomplete-input form-control" type="text" autocomplete="off"/>
+                </div>
+            </div>
+        </t>
+    </t>
+    <t t-name="web_index.search_field_modal">
+        <table class="o_list_view table table-condensed table-striped">
+            <t t-foreach="contents" t-as="content">
+                <tr class="ui-menu-item" t-attf-content-id="#{content[0]}" tabindex="-1">
+                    <td>
+                        <t t-esc="content[1]"/>
+                    </td>
+                </tr>
+            </t>
+        </table>
+    </t>
+    <t t-name="web_index.search_field_list">
+        <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content "
+            style="width:80%;position:absolute;top:31px;left:16px;bottom:auto;">
+            <t t-if="!more_info">
+                <t t-foreach="contents" t-as="content">
+                    <li class="ui-menu-item" t-attf-content-id="#{content[0]}" tabindex="-1">
+                        <t t-esc="content[1]"/>
+                    </li>
+                </t>
+            </t>
+
+            <t t-if="more_info">
+                <li class="ui-menu-item" t-attf-content-id="#{contents[0][0]}" tabindex="-1">
+                    <t t-esc="contents[0][1]"/>
+                </li>
+                <li class="ui-menu-item" t-attf-content-id="#{contents[1][0]}" tabindex="-1">
+                    <t t-esc="contents[1][1]"/>
+                </li>
+                <li class="ui-menu-item" t-attf-content-id="#{contents[2][0]}" tabindex="-1">
+                    <t t-esc="contents[2][1]"/>
+                </li>
+                <li class="ui-menu-item" t-attf-content-id="#{contents[3][0]}" tabindex="-1">
+                    <t t-esc="contents[3][1]"/>
+                </li>
+                <li class="ui-menu-item" t-attf-content-id="#{contents[4][0]}" tabindex="-1">
+                    <t t-esc="contents[4][1]"/>
+                </li>
+                <li class="ui-menu-more" tabindex="-1" t-attf-data-target="##{tag}-Modal" data-toggle="modal" >查看更多</li>
+            </t>
+        </ul>
+
+
+    </t>
+</templates>

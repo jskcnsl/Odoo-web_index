@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="web_index.index_header_window_view">
+        <header class="header-fixed navbar col-md-12 no-mg-b">
+            <div class="checkbox col-xs-3" style="margin-top: 14px;margin-bottom: 14px;">
+                <label class="checkbox checkbox-custom no-padding"><t t-esc="header_title"/></label>
+            </div>
+        </header>
+    </t>
+</templates>

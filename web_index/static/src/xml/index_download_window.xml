@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="web_index.index_download_window_view">
+        <section class="panel">
+            <div class="panel-heading">
+                <t t-esc="title"/>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <a t-attf-href="#{download_href}">
+                        <button id="download_button" type="button" class="btn btn-info mg-t-xs download_button">下载
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </t>
+</templates>
